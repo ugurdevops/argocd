@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodejs
+  namespace: argocd
+  labels:
+    app.kubernetes.io/managed-by: "Helm"
+  annotations:
+    meta.helm.sh/release-name: "argocd"
+    meta.helm.sh/release-namespace: "argocd"
+spec:
+  project: nodejsapp
+  source:
+    repoURL: https://github.com/ugurdevops/argocd.git
+    targetRevision: HEAD
+    path: app-deployment
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps

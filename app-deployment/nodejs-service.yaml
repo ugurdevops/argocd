@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-app-service
+  namespace: apps
+spec:
+  selector:
+    app: nodejs-app
+  ports:
+    - protocol: TCP
+      port: 5000 
+      targetPort: 3000  
+      nodePort: 31110
+  type: LoadBalancer
+
