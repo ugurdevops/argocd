@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/ugurdevops/argocd.git
     targetRevision: HEAD
-    path: app-deployment
+    path: deployment
   destination:
     server: https://kubernetes.default.svc
     namespace: apps
